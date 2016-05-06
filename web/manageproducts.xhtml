@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+     <h:body>
+        <h1> Product Information </h1>
+        <f:view>
+            <h:form enctype="multipart/form-data">
+                <h:panelGrid columns="2" >
+                <h:outputText value="ProductId" />
+                <h:inputText value ="#{productJSFManagedBean.em.productId}" />   
+                <h:outputText value="Product Name" />
+                <h:inputText value ="#{productJSFManagedBean.em.productName}" /> 
+                  <h:outputText value="Price" />
+                  <h:inputText value ="#{productJSFManagedBean.em.productPrice}" />   
+                  <h:outputText value="Category" />
+                  <h:inputText value ="#{productJSFManagedBean.em.productCategory}" /> 
+                  <h:outputText value="Description" />
+                  <h:inputTextarea value ="#{productJSFManagedBean.em.productDesc}" /> 
+                  <h:outputText value="Image" />
+                  <h:inputText value ="#{productJSFManagedBean.em.image}" />  
+              
+                  
+                </h:panelGrid>
+                
+                <h:commandButton value=" Add " action="#{productJSFManagedBean.create()}" />
+                <h:commandButton value=" Update" action="#{productJSFManagedBean.update()}" />
+                <h:commandButton value=" Delete" action="#{productJSFManagedBean.delete()}"  />
+
+            </h:form>
+        </f:view>
+  
+        <f:view>
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{productJSFManagedBean.lister()}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ProductId"/>
+                        </f:facet>
+                        <h:commandLink value="#{item.productId}" 
+                                       action ="#{productJSFManagedBean.select(item.productId)}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ProductName"/>
+                        </f:facet>
+                        <h:outputText value="#{item.productName}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ProductPrice"/>
+                        </f:facet>
+                        <h:outputText value="#{item.productPrice}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ProductCategory"/>
+                        </f:facet>
+                        <h:outputText value="#{item.productCategory}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ProductDesc"/>
+                        </f:facet>
+                        <h:outputText value="#{item.productDesc}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Image"/>
+                        </f:facet>
+                        <h:outputText value="#{item.image}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="PruductImage"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pruductImage}"/>
+                    </h:column> 
+                </h:dataTable>
+            </h:form>
+        </f:view> 
+    </h:body>
+</html>
+

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+                <style type="text/css">
+            <!--
+            html,body{
+                text-align: center;
+                background-image: url(imagesbg/bg.jpg);
+            }
+            .style1 {
+                font-size: 16px;
+                font-weight: bold;
+                color: #ffffff;
+            }
+            .white{
+                color:#ffffff;
+            }
+            .style2 {color: #FFFFFF}
+
+            -->
+        </style>
+    </h:head>
+    <h:body>
+                 <br/><br/>
+        <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif" width="450" ><tr><td>
+           <h:panelGrid id="panel"  columns="3" border="1" cellpadding="10" cellspacing="1" width="450" >
+                <f:facet name="header">
+                    <h:outputText value="Welcome #{loginBean.userName}"/>
+                </f:facet>
+                    <h:link outcome="manageuser" value="CUSTOMER DETAILS" />
+                    <h:link outcome="products" value="PRODUCT DETAILS" />
+                    <h:link outcome="index" value="LOG OUT" />
+            </h:panelGrid> </td></tr>
+        </table>
+           <br/><br/>
+        <h:form>
+             <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif"><tr><td>
+                    <h:panelGrid id="panel" columns="3" border="1" cellpadding="10" cellspacing="1">
+                        <f:facet name="header">
+                            <h:outputText value="ORDERING LIST"/>
+                        </f:facet>
+<h:dataTable value="#{sp.cart}" var="i" border="1" cellpadding="7px" 
+                         style="border-collapse: collapse" >           
+                <h:column>                 
+                    <f:facet name="header">Name</f:facet>
+                    #{i.p.productName}
+                    
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    RM #{i.p.productPrice}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                    <h:inputText value ="#{i.quantity}" style="width: 20px"/>  
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Picture</f:facet>
+                    <h:graphicImage library="images" name="#{i.p.image}" 
+                                    width="100px" height ="150px" />  
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{sp.remove(i)}" />
+                </h:column>
+    <f:facet name="footer">Total : RM#{sp.total}<br/></f:facet> 
+                 <f:facet name="footer"><h:commandButton value="Update" action="#{sp.update()}" /> </f:facet>
+                
+            </h:dataTable>
+                <f:facet name="footer"><h:commandButton value="Payment" action="#{sp.payment()}" /></f:facet>
+                <f:facet name="footer"> <h:commandButton value="Paid By Cash" action="paymentstatus"/><br /></f:facet>
+                                 <f:facet name="footer"><h:link outcome="products" value ="Continue Shopping ...." /></f:facet>
+                    </h:panelGrid> </td></tr>
+                </table>
+         
+            <br/>
+            <br/>
+        </h:form>  
+        <br/>
+
+    </h:body>
+</html>
+
