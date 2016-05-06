@@ -5,21 +5,50 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Cash Payment</title>
+          <style type="text/css">
+            <!--
+            html,body{
+                text-align: center;
+                background-image: url(imagesbg/bg.jpg);
+            }
+            .style1 {
+                font-size: 16px;
+                font-weight: bold;
+                color: #ffffff;
+            }
+            .white{
+                color:#ffffff;
+            }
+            .style2 {color: #00000f}
+
+            -->
+        </style>
     </h:head>
     <h:body>
         <f:view>
-            <h:form>
+                                        <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif"><tr><td>
+                    <h:panelGrid id="panel" columns="3"  border="1" cellpadding="10" cellspacing="1">
+                        <f:facet name="header">
+                            <h:outputText value="PRODUCT DETAILS"/>
+                        </f:facet>
+           
+                            <h:form>
           
                  <h:outputLabel value="Enter Amount(RM):"/>            
                 <h:inputText value ="#{sp.cashAmount}" /> 
                 <h:commandButton value ="Calculate "/>
                 <br/>
                 <br/>
-                <h:outputLabel value="Balance RM : #{sp.bal}" />
+                <h:outputLabel value="Balance RM : #{sp.bal}" /> <br/><br/>
+                
                 <h:commandButton value ="Finish" action="paymentsuccess"/>
                 
             </h:form>  
+            
+                    </h:panelGrid> </td></tr>
+                </table>
+
         </f:view>
     </h:body>
 </html>

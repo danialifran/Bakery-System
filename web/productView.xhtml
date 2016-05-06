@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Product Details</title>
                  <style type="text/css">
             <!--
             html,body{
@@ -41,12 +41,11 @@
        
         <f:view>
                             <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif"><tr><td>
-                    <h:panelGrid id="panel" columns="1"  border="1" cellpadding="10" cellspacing="1">
+                    <h:panelGrid id="panel" columns="5"  border="1" cellpadding="10" cellspacing="1">
                         <f:facet name="header">
                             <h:outputText value="PRODUCT DETAILS"/>
                         </f:facet>
            
-                <h1><h:outputText value="List"/></h1>
                 <h:dataTable value="#{proControl.lst}" var="item">
                     <h:column>
                         <f:facet name="header">
