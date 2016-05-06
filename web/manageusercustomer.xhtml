@@ -5,7 +5,6 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Online Bakery System</title>
-         <title>New Registration</title>
          <style type="text/css">
             <!--
             html,body{
@@ -20,20 +19,34 @@
             .white{
                 color:#ffffff;
             }
-            .style2 {color: #FFFFFF}
+            .style2 {color: #00000f}
 
             -->
         </style>
     </h:head>
     <h:body>
-        
-        <br/><br/><br/>
+       <br/><br/>
+        <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif" width="450" ><tr><td>
+           <h:panelGrid id="panel"  columns="3" border="1" cellpadding="10" cellspacing="1" width="450" >
+                <f:facet name="header">
+                    <h:outputText value="Welcome #{loginBean.userName}"/>
+                </f:facet>
+                    <h:link outcome="customermenu" value="MAIN MENU" />
+                    <h:link outcome="products" value="VIEW PRODUCTS" />
+                    <h:link outcome="index" value="LOG OUT" />
+            </h:panelGrid> </td></tr>
+        </table>
+       
+       <br/><br/>
+       
         <f:view>
+          
+            
             <h:form >
                 <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif"><tr><td>
                     <h:panelGrid id="panel" columns="2" border="1" cellpadding="10" cellspacing="1">
                         <f:facet name="header">
-                            <h:outputText value="REGISTER CUSTOMER"/>
+                            <h:outputText value="USER INFORMATION"/>
                         </f:facet>
                             <h:outputText value ="Employee ID" />
                     <h:inputText value ="#{empJSFManagedBean.em.employeeId}" />
@@ -52,25 +65,17 @@
                    
                         <f:facet name="footer" >
                             <h:panelGroup style="display:block; text-align:center">
-                                 <h:commandButton value ="Register" action="#{empJSFManagedBean.create()}"/>
-                                 <h:button value ="Cancel" outcome="index" />
-                                 
-                            </h:panelGroup>
+                                <h:commandButton value ="Update Details" action="#{empJSFManagedBean.update()}" />
+                                <h:commandButton value ="Delete Details" action="#{empJSFManagedBean.delete()}" />
+                             </h:panelGroup>
                         </f:facet>
             
                     </h:panelGrid> </td></tr>
                 </table>
             </h:form>
             <br/>
-            
-         
-           
-           
         </f:view>
-         
-        
-        
- 
+       
     </h:body>
 </html>
 

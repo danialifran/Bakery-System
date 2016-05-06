@@ -31,7 +31,7 @@
                 <f:facet name="header">
                     <h:outputText value="Welcome #{loginBean.userName}"/>
                 </f:facet>
-                    <h:link outcome="manageuseradmin" value="CUSTOMER DETAILS" />
+                    <h:link outcome="adminmenu" value="MAIN MENU" />
                     <h:link outcome="productView" value="PRODUCT DETAILS" />
                     <h:link outcome="index" value="LOG OUT" />
             </h:panelGrid> </td></tr>
@@ -53,7 +53,7 @@
                     </h:column> !-->
                     <h:column>
                         <f:facet name="header" >
-                            <h:outputText value="Employee Id"/>
+                            <h:outputText value="No."/>
                         </f:facet>
                         <h:commandLink value="#{item.employeeId}" action ="#{empJSFManagedBean.select(item.employeeId)}"/>
                         
@@ -106,7 +106,7 @@
                 <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif"><tr><td>
                     <h:panelGrid id="panel" columns="2" border="1" cellpadding="10" cellspacing="1">
                         <f:facet name="header">
-                            <h:outputText value="REGISTER CUSTOMER"/>
+                            <h:outputText value="CUSTOMER DETAILS"/>
                         </f:facet>
                             <h:outputText value ="Employee ID" />
                     <h:inputText value ="#{empJSFManagedBean.em.employeeId}" />
@@ -125,8 +125,8 @@
                    
                         <f:facet name="footer" >
                             <h:panelGroup style="display:block; text-align:center">
-                                <h:commandButton value ="Update Customer Details" action="#{empJSFManagedBean.update()}" />
-                                <h:commandButton value ="Delete Customer Details" action="#{empJSFManagedBean.delete()}" />
+                                <h:commandButton value ="Update Details" action="#{empJSFManagedBean.update()}" />
+                                <h:commandButton value ="Delete Details" action="#{empJSFManagedBean.delete()}" />
                              </h:panelGroup>
                         </f:facet>
             

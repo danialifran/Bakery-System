@@ -5,12 +5,47 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+                 <style type="text/css">
+            <!--
+            html,body{
+                text-align: center;
+                background-image: url(imagesbg/bg.jpg);
+            }
+            .style1 {
+                font-size: 16px;
+                font-weight: bold;
+                color: #ffffff;
+            }
+            .white{
+                color:#ffffff;
+            }
+            .style2 {color: #00000f}
+
+            -->
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets<f:view>
-
-
-            <h:form>
+               <br/><br/>
+        <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif" width="450" ><tr><td>
+           <h:panelGrid id="panel"  columns="3" border="1" cellpadding="10" cellspacing="1" width="450" >
+                <f:facet name="header">
+                    <h:outputText value="Welcome #{loginBean.userName}"/>
+                </f:facet>
+                    <h:link outcome="manageuseradmin" value="CUSTOMER DETAILS" />
+                    <h:link outcome="adminmenu" value="MAIN MENU" />
+                    <h:link outcome="index" value="LOG OUT" />
+            </h:panelGrid> </td></tr>
+        </table>
+       
+       <br/><br/>
+       
+        <f:view>
+                            <table border='0' bgcolor="#f2d6cb" align="center" style="font-family: sans-serif"><tr><td>
+                    <h:panelGrid id="panel" columns="1"  border="1" cellpadding="10" cellspacing="1">
+                        <f:facet name="header">
+                            <h:outputText value="PRODUCT DETAILS"/>
+                        </f:facet>
+           
                 <h1><h:outputText value="List"/></h1>
                 <h:dataTable value="#{proControl.lst}" var="item">
                     <h:column>
@@ -56,7 +91,12 @@
                         <h:outputText value="#{item.pruductImage}"/>
                     </h:column>
                 </h:dataTable>
-            </h:form>
+            
+                    </h:panelGrid> </td></tr>
+                </table>
+
+
+
         </f:view>
 
     </h:body>
